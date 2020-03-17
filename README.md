@@ -16,3 +16,7 @@ Technologies:
 -Tailwind and/or SASS
 
 Project roles: 
+
+
+Data source:
+https://covidtracking.com/api/
