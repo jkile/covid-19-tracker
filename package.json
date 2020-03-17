@@ -1,0 +1,20 @@
+{
+  "name": "covid-19-tracker",
+  "version": "1.0.0",
+  "description": "COVID-19 tracker: -db of cases/tests by state and date -separate page/view to add data to db -view data by day and/or state -cases added will go to secondary view of \"unverified\" cases for self reporting illness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkile/covid-19-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkile/covid-19-tracker/issues"
+  },
+  "homepage": "https://github.com/jkile/covid-19-tracker#readme"
+}
