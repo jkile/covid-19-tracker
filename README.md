@@ -15,4 +15,7 @@ Technologies:
 -Handlebars
 -Tailwind and/or SASS
 
-Project roles: 
+To Build:
+Form submission w/ date/state/checkboxes(symptoms)
+
+Project roles:
