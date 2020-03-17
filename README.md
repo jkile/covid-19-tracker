@@ -6,6 +6,7 @@ COVID-19 tracker:
 -view data by day and/or state
 -cases added will go to secondary view of "unverified" cases for self reporting illness
 
+
 Technologies:
 -Anime.js
 -d3 MAYBE
