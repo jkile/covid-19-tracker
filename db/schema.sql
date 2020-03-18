@@ -12,3 +12,15 @@ CREATE TABLE statecovid (
     death INT NOT null default 0,
     total INT NOT null default 0
 )
+
+CREATE TABLE selfReporting (
+    dateOf DATE,
+    state CHAR(2),
+    achespains BOOLEAN NOT NULL default false,
+    runnynose BOOLEAN NOT NULL default false,
+    sorethroat BOOLEAN NOT NULL default false,
+    cough BOOLEAN NOT NULL default  false,
+    fever BOOLEAN NOT NULL default false,
+    difficultyBreathing BOOLEAN NOT NULL default false,
+    othersymptoms VARCHAR(140) 
+)
