@@ -1,3 +1,5 @@
+const sequelize = require("sequelize");
+
 module.exports = function (sequelize, DataTypes) {
   var statecovid = sequelize.define("statecovid", {
     dateOf: {
