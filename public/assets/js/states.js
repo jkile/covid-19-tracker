@@ -1,7 +1,7 @@
 // const d3 = require("d3");
 // const path = d3.geoPath();
 // const uStates = require("./uStates.js");
-const axios = require("axios");
+
 
 function tooltipHtml(n, d) {
   /* function to create html content string in tooltip div. */
@@ -22,7 +22,7 @@ function tooltipHtml(n, d) {
   );
 }
 
-axios.get("/api/covid").then(function(response) {
+axios.get("/api/statecovid").then(function(response) {
   console.log(response);
   var sampleData = {}; /* Sample random data. */
   [
