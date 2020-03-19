@@ -1,7 +1,7 @@
 // const d3 = require("d3");
 // const path = d3.geoPath();
 // const uStates = require("./uStates.js");
-
+console.log("test");
 function tooltipHtml(n, d) {
   /* function to create html content string in tooltip div. */
   return (
