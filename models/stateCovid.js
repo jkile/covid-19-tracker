@@ -1,7 +1,4 @@
 const sequelize = require("sequelize");
-// const Papa = require("papaparse");
-// const fs = require("fs");
-// const file = require("../db/seed.csv");
 
 module.exports = function(sequelize, DataTypes) {
   var statecovid = sequelize.define("statecovid", {

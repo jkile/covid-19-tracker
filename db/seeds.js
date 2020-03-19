@@ -11,7 +11,7 @@ db.statecovid.sync({ force: true }).then(function() {
     .on("data", row => {
       csvData.push(row);
       csvData.forEach(data => {
-        // data.date = parseInt(data.date);
+        data.date = parseInt(data.date);
         if (data.positive === "") {
           data.positive = 0;
         } else {
