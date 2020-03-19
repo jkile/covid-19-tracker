@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const DataTypes = require("sequelize");
 var sequelize = require("../config/connection");
 
@@ -44,3 +45,51 @@ var Statecovid = sequelize.define("statecovid", {
 Statecovid.sync();
 
 module.exports = Statecovid;
+=======
+const sequelize = require("sequelize");
+// const Papa = require("papaparse");
+// const fs = require("fs");
+// const file = require("../db/seed.csv");
+
+module.exports = function(sequelize, DataTypes) {
+  var statecovid = sequelize.define("statecovid", {
+    date: {
+      type: DataTypes.DATE
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [2]
+      }
+    },
+    positive: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    negative: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    pending: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    death: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    total: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }
+  });
+
+  return statecovid;
+};
+>>>>>>> 1966a62d7889207cde332c8c4a1dcf25ccdc7e86
