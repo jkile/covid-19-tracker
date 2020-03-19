@@ -54,7 +54,7 @@ const sequelize = require("sequelize");
 module.exports = function(sequelize, DataTypes) {
   var statecovid = sequelize.define("statecovid", {
     date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATEONLY
     },
     state: {
       type: DataTypes.STRING,
@@ -74,12 +74,12 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     },
     pending: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 0
     },
     death: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 0
     },
