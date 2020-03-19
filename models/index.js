@@ -11,6 +11,7 @@ var db = {};
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
+
   var sequelize = new Sequelize(
     config.database,
     config.username,
@@ -39,4 +40,6 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+
 module.exports = db;
+
