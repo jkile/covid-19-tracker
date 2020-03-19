@@ -1,6 +1,6 @@
 
 // Requiring our Todo model
-var db = require("../models/stateCovid");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   // GET route for getting all of the covid
   app.get("/api/statecovid", function(req, res) {
-    db.stateCovid.findAll({})
+    db.statecovid.findAll({})
       .then(function(dbstateCovid) {
         res.json(dbstateCovid);
       });
