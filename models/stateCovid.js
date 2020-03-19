@@ -1,10 +1,12 @@
+
 const DataTypes = require("sequelize");
 const sequelize = require("../config/connection");
 
-module.exports = function (sequelize, DataTypes) {
+
+module.exports = function(sequelize, DataTypes) {
   var statecovid = sequelize.define("statecovid", {
-    dateOf: {
-      type: DataTypes.DATE
+    date: {
+      type: DataTypes.DATEONLY
     },
     state: {
       type: DataTypes.STRING,
@@ -24,12 +26,12 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: 0
     },
     pending: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 0
     },
     death: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 0
     },
@@ -39,5 +41,6 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: 0
     }
   });
+
   return statecovid;
 };
