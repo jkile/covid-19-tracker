@@ -78,17 +78,14 @@ axios.get("/api/statecovid").then(function(response) {
     "VA"
   ].forEach(function(d) {
     sampleData[d] = {
-      positive: d3.min([low, mid, high]),
-      negative: d3.max([low, mid, high]),
-      death: Math.round((low + mid + high) / 3),
-      total: something,
+      positive: response.positive,
       color: d3.interpolate("#ffffcc", "#800026")(positive / 100)
     };
   });
 });
 
 /* draw states on id #statesvg */
-
-uStates.draw("#statesvg", sampleData, tooltipHtml);
+// uStates.draw("#statesvg", sampleData, tooltipHtml);
+uStates.draw("#statesvg");
 
 d3.select(self.frameElement).style("height", "600px");

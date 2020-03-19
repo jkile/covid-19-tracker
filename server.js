@@ -1,10 +1,6 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-// *** Dependencies
-// =============================================================
-const express = require("express");
+
+var express = require("express");
+
 
 // Sets up the Express App
 // =============================================================
