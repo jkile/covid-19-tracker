@@ -24,6 +24,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/stateCovid-api-routes.js")(app);
+require("./routes/html-routes")(app);
 // require("./routes/api-routes.js")(app);
 
 // // Syncing our sequelize models and then starting our Express app
