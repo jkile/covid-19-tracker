@@ -15,7 +15,7 @@ CREATE TABLE selfReporting (
     othersymptoms VARCHAR(140) 
 );
 
-CREATE TABLE statecovid (
+CREATE TABLE statecovids (
     date DATE,
     state CHAR(2),
     positive DECIMAL(10,4) NOT null default 0,
@@ -25,8 +25,3 @@ CREATE TABLE statecovid (
     total DECIMAL(10,4) NOT null default 0
 );
 
-LOAD DATA INFILE 'seed.csv' 
-INTO TABLE statecovid 
-FIELDS TERMINATED BY ',' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
