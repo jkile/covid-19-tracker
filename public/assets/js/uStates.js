@@ -328,7 +328,7 @@
         .duration(500)
         .style("opacity", 0);
     }
-
+    let count = 1;
     d3.select(id)
       .selectAll(".state")
       .data(uStatePaths)
@@ -339,6 +339,10 @@
         return d.d;
       })
       .style("fill", function(d) {
+        
+        console.log(data[d.id])
+        count++;
+        console.log(count)
         return data[d.id].color;
       })
       .on("mouseover", mouseOver)

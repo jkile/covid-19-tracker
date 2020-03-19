@@ -3,17 +3,17 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
   // GET route for getting all of the covid
-  app.get("/api/statecovid", function(req, res) {
+  app.get("/api/statecovid", function (req, res) {
 
-      db.statecovid.findAll({})
-      .then(function(dbstateCovid) {
+    db.statecovid.findAll({})
+      .then(function (dbstateCovid) {
         res.json(dbstateCovid);
       });
-
-  // Get route for returning statecovids of a specific state
-  app.get("/api/statecovids/state/:state", function(req, res) {
+  })
+    // Get route for returning statecovids of a specific state
+    app.get("/api/statecovids/state/:state", function (req, res) {
 
     db.stateCovid
       .findAll({
@@ -21,14 +21,13 @@ module.exports = function(app) {
           state: req.params.state
         }
       })
-
-      .then(function(dbstateCovid) {
+      .then(function (dbstateCovid) {
         res.json(dbstateCovid);
       });
   });
 
   // Get route for retrieving a single stateCovid date
-  app.get("/api/statecovids/:date", function(req, res) {
+  app.get("/api/statecovids/:date", function (req, res) {
 
     db.stateCovid
       .findOne({
@@ -36,9 +35,9 @@ module.exports = function(app) {
           date: req.params.date
         }
       })
-
-      .then(function(dbstateCovid) {
+      .then(function (dbstateCovid) {
         res.json(dbstateCovid);
       });
   });
-};
+
+}
