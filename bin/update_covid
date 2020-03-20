@@ -1,4 +1,4 @@
-#! /app/bin/node
+#! //bin/node
 
 const fs = require("fs");
 const path = require("path");
@@ -6,11 +6,16 @@ const csv = require("fast-csv");
 const db = require("../models");
 const axios = require("axios");
 
-axios.get("https://covidtracking.com/api/states/daily.csv").then(function (response) {
-    //console.log(response.data);
+axios({
+    url: "https://covidtracking.com/api/states/daily.csv",
+    method: "GET",
+    responseType: "stream"
+
+}).then(function (response) {
+    console.log(response);
     const csvData = [];
     db.statecovid.sync({ force: true }).then(function () {
-        response.data
+        fs.createReadStream(response)
             .pipe(
                 csv.parse({
                     headers: [
@@ -60,7 +65,7 @@ axios.get("https://covidtracking.com/api/states/daily.csv").then(function (respo
             })
             .on("end", rowCount => {
                 // console.log(csvData[0]);
-                db.statecovid.bulkCreate(csvData).then(function (res) { 
+                db.statecovid.bulkCreate(csvData).then(function (res) {
                     process.exit();
                 });
                 // connection.query("INSERT INTO ");
