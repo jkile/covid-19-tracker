@@ -4,7 +4,8 @@
   "description": "COVID-19 tracker: -db of cases/tests by state and date -separate page/view to add data to db -view data by day and/or state -cases added will go to secondary view of \"unverified\" cases for self reporting illness",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
