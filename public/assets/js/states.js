@@ -25,9 +25,13 @@ function tooltipHtml(n, d) {
 axios.get("/api/statecovid").then(function (response) {
   console.log(response.data)
   let currentData = [];
-  for (let i = 0; i < 51; i++) {
-    currentData.push(response.data[i]);
+  let territories = ["GU", "AS", "MP", "PR", "VI"];
+  for (let i = 0; i < 56; i++) {
+    if(!territories.includes(response.data[i].state)){
+      currentData.push(response.data[i]);
+    }
   }
+  console.log(currentData)
   let stateArray = currentData.map(item => item.state)
   var sampleData = {}; /* Sample random data. */
   stateArray.forEach(function (d, i) {
