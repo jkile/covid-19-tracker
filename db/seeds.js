@@ -8,20 +8,32 @@ const axios = require("axios");
 //   console.log(response.data);
 //   fs.writeFile(path.resolve(__dirname, "seed2.csv"), response.data, function(err){
 //     if (err) throw err;
-    
-
 
 //   })
 // })
 const csvData = [];
 db.statecovid.sync({ force: true }).then(function() {
-  fs.createReadStream(path.resolve(__dirname, "seed.csv"))
-    .pipe(csv.parse({ headers: true }))
+  fs.createReadStream(path.resolve(__dirname, "seed2.csv"))
+    .pipe(
+      csv.parse({
+        headers: [
+          "date",
+          "state",
+          "positive",
+          "negative",
+          "pending",
+          "death",
+          "total",
+          undefined
+        ],
+        skipRows: 1
+      })
+    )
     .on("error", error => console.error(error))
     .on("data", row => {
+      // console.log(row);
       csvData.push(row);
       csvData.forEach(data => {
-        data.date = parseInt(data.date);
         if (data.positive === "") {
           data.positive = 0;
         } else {
@@ -51,8 +63,7 @@ db.statecovid.sync({ force: true }).then(function() {
     })
     .on("end", rowCount => {
       // console.log(csvData[0]);
-      db.statecovid.bulkCreate(csvData).then(function(res) {
-      });
+      db.statecovid.bulkCreate(csvData).then(function(res) {});
       // connection.query("INSERT INTO ");
     });
 });
