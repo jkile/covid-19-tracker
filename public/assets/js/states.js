@@ -36,7 +36,7 @@ axios.get("/api/statecovid").then(function (response) {
       negative: currentData[i].negative,
       death: currentData[i].death,
       state: currentData[i].state,
-      color: d3.interpolate("#ffffcc", "#800026")(currentData[i].positive / 100)
+      color: d3.interpolate("#ffffcc", "#0000cc")(currentData[i].positive / 100)
     };
   });
   console.log(sampleData)

@@ -2,7 +2,17 @@ const fs = require("fs");
 const path = require("path");
 const csv = require("fast-csv");
 const db = require("../models");
+const axios = require("axios");
 
+// axios.get("https://covidtracking.com/api/states/daily.csv").then(function(response){
+//   console.log(response.data);
+//   fs.writeFile(path.resolve(__dirname, "seed2.csv"), response.data, function(err){
+//     if (err) throw err;
+    
+
+
+//   })
+// })
 const csvData = [];
 db.statecovid.sync({ force: true }).then(function() {
   fs.createReadStream(path.resolve(__dirname, "seed.csv"))
@@ -40,10 +50,8 @@ db.statecovid.sync({ force: true }).then(function() {
       });
     })
     .on("end", rowCount => {
-      console.log(csvData[1]);
       // console.log(csvData[0]);
       db.statecovid.bulkCreate(csvData).then(function(res) {
-        console.log(res);
       });
       // connection.query("INSERT INTO ");
     });
