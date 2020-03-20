@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/assets/css/output.css" type="text/css"/>
   </head>
   <body>
+    <nav class="bg-teal-800 p-6 mx-auto">
+        <h1 class="text-center text-3xl text-white">COVID-19 Tracker</h1>
+    </nav>
     <div id="tooltip"></div>
-    <svg width="960" height="600" id="statesvg"></svg>
+    <div class="container mx-auto">
+      <svg id="statesvg" viewBox=" 0, 0, 950, 600"class="mx-auto"></svg>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="assets/js/uStates.js"></script>

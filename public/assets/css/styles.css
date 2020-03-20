@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .state {
   fill: none;
   stroke: #a9a9a9;
@@ -43,4 +47,16 @@
 }
 #tooltip tr td:nth-child(2) {
   text-align: center;
+}
+.graph-xl{
+  height: 600px;
+}
+.graph-lg{
+  height: 450px;
+}
+.graph-md{
+  height: 400px;
+}
+.graph-sm{
+  height: 200px;
 }
