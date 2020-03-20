@@ -12,8 +12,8 @@ const axios = require("axios");
 //   })
 // })
 const csvData = [];
-db.statecovid.sync({ force: true }).then(function() {
-  fs.createReadStream(path.resolve(__dirname, "seed2.csv"))
+db.statecovid.sync({ force: true }).then(function() { 
+    response.data
     .pipe(
       csv.parse({
         headers: [
