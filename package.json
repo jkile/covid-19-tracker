@@ -28,6 +28,7 @@
     "mysql2": "^2.1.0",
     "papaparse": "^5.1.1",
     "sequelize": "^5.21.5",
+    "tailwindcss": "^1.2.0",
     "topojson-client": "^3.1.0"
   }
 }
