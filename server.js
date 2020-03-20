@@ -1,10 +1,6 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-// *** Dependencies
-// =============================================================
-const express = require("express");
+
+var express = require("express");
+
 
 // Sets up the Express App
 // =============================================================
@@ -24,6 +20,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/stateCovid-api-routes.js")(app);
+require("./routes/html-routes")(app);
 // require("./routes/api-routes.js")(app);
 
 // // Syncing our sequelize models and then starting our Express app
