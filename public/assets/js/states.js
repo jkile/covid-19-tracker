@@ -23,7 +23,7 @@ function tooltipHtml(n, d) {
 }
 
 axios.get("/api/statecovid").then(function (response) {
-  console.log(response.data)
+  //console.log(response.data)
   let currentData = [];
   let territories = ["GU", "AS", "MP", "PR", "VI"];
   for (let i = 0; i < 56; i++) {
@@ -31,7 +31,7 @@ axios.get("/api/statecovid").then(function (response) {
       currentData.push(response.data[i]);
     }
   }
-  console.log(currentData)
+  //console.log(currentData)
   let colorScale = d3.scaleSequential()
     .domain([0, d3.max(currentData.map(item => item.positive)) / 100])
     .interpolator(d3.interpolateRgb("white", "blue"))
@@ -46,7 +46,7 @@ axios.get("/api/statecovid").then(function (response) {
       color: colorScale(currentData[i].positive)
     };
   });
-  console.log(sampleData)
+  //console.log(sampleData)
   uStates.draw("#statesvg", sampleData, tooltipHtml);
 
   d3.select(self.frameElement).style("height", "600px");
@@ -57,15 +57,16 @@ axios.get("/api/statecovid").then(function (response) {
   getStatePositive(response.data, "NY");
   getStateTotal(response.data, "NY");
   getStateDeath(response.data, "NY")
-  
+
 });
 
-function createDropDown(states){
+function createDropDown(states) {
   const chartContainer = document.getElementById("chartContainer");
   const stateSelector = document.createElement("select");
   stateSelector.setAttribute("id", "stateSelector");
+  stateSelector.setAttribute("class", "appearance-none w-24 mx-auto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline")
   chartContainer.prepend(stateSelector);
-  states.forEach(function(d, i){
+  states.forEach(function (d, i) {
     let newState = document.createElement("option");
     newState.setAttribute("value", states[i]);
     newState.innerText = states[i];
