@@ -26,11 +26,22 @@ axios.get("/api/statecovid").then(function (response) {
   console.log(response.data)
   let currentData = [];
   let territories = ["GU", "AS", "MP", "PR", "VI"];
-  for (let i = 0; i < 56; i++) {
-    if (!territories.includes(response.data[i].state)) {
-      currentData.push(response.data[i]);
+  // for (let i = 0; i < 56; i++) {
+  //   if (!territories.includes(response.data[i].state)) {
+  //     currentData.push(response.data[i]);
+  //   }
+  // }
+  let today = new Date;
+  let currentDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate() -1}`;
+
+  response.data.forEach(function(d, i){
+    if (response.data[i].date == currentDate){
+      if (!territories.includes(response.data[i].state)) {
+        currentData.push(response.data[i]);
+      }
     }
-  }
+  })
+
   console.log(currentData)
   let stateArray = currentData.map(item => item.state)
   var sampleData = {}; /* Sample random data. */
@@ -48,21 +59,21 @@ axios.get("/api/statecovid").then(function (response) {
 
   d3.select(self.frameElement).style("height", "600px");
 
-  const positiveState = document.getElementById("positiveState").getContext("2d");
+  // const positiveState = document.getElementById("positiveState").getContext("2d");
 
-  let washingtonData = response.data.filter((item, i, ar) => ar.indexOf(item.state) === i);
+  // let washingtonData = response.data.filter((item, i, ar) => ar.indexOf(item.state) === i);
 
 
-  const chart = new Chart(positiveState, {
-    type: "line",
+  // const chart = new Chart(positiveState, {
+  //   type: "line",
 
-    data: {
-      label: "Positive Tests",
-      backgroundColor: "blue",
-      borderColor: "slateblue",
-      data: washingtonData
-    }
-  })
+  //   data: {
+  //     label: "Positive Tests",
+  //     backgroundColor: "blue",
+  //     borderColor: "slateblue",
+  //     data: washingtonData
+  //   }
+  // })
 
 });
 
