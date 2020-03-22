@@ -20,6 +20,7 @@ axios({
           "positive",
           "negative",
           "pending",
+          undefined,
           "death",
           "total",
           undefined
