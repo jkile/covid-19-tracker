@@ -26,21 +26,26 @@ axios.get("/api/statecovid").then(function (response) {
   console.log(response.data)
   let currentData = [];
   let territories = ["GU", "AS", "MP", "PR", "VI"];
-  // for (let i = 0; i < 56; i++) {
-  //   if (!territories.includes(response.data[i].state)) {
-  //     currentData.push(response.data[i]);
-  //   }
-  // }
   let today = new Date;
   let currentDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate() -1}`;
   console.log(response.data[0].date);
-  response.data.forEach(function(d, i){
-    if (response.data[i].date == currentDate){
-      if (!territories.includes(response.data[i].state)) {
-        currentData.push(response.data[i]);
-      }
+  let currentDayArray = response.data.filter(item => item.date == currentDate);
+  console.log(currentDayArray);
+  for (let i = 0; i < 56; i++) {
+    if (!territories.includes(response.data[i].state)) {
+      currentData.push(response.data[i]);
     }
-  })
+  }
+
+
+
+  // response.data.forEach(function(d, i){
+  //   if (response.data[i].date == currentDate){
+  //     if (!territories.includes(response.data[i].state)) {
+  //       currentData.push(response.data[i]);
+  //     }
+  //   }
+  // })
 
   console.log(currentData)
   let stateArray = currentData.map(item => item.state)
