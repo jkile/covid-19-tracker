@@ -32,6 +32,9 @@ axios.get("/api/statecovid").then(function (response) {
     }
   }
   console.log(currentData)
+  let colorScale = d3.scaleSequential()
+    .domain([0, d3.max(currentData.map(item => item.positive)) / 100])
+    .interpolator(d3.interpolateRgb("white", "blue"))
   let stateArray = currentData.map(item => item.state)
   var sampleData = {}; /* Sample random data. */
   stateArray.forEach(function (d, i) {
@@ -40,7 +43,7 @@ axios.get("/api/statecovid").then(function (response) {
       negative: currentData[i].negative,
       death: currentData[i].death,
       state: currentData[i].state,
-      color: d3.interpolate("#ffffcc", "#0000cc")(currentData[i].positive / 100)
+      color: colorScale(currentData[i].positive)
     };
   });
   console.log(sampleData)
@@ -48,22 +51,100 @@ axios.get("/api/statecovid").then(function (response) {
 
   d3.select(self.frameElement).style("height", "600px");
 
-  // const positiveState = document.getElementById("positiveState").getContext("2d");
+  createDropDown(stateArray);
 
-  // let washingtonData = response.data.filter((item, i, ar) => ar.indexOf(item.state) === i);
-
-
-  // const chart = new Chart(positiveState, {
-  //   type: "line",
-
-  //   data: {
-  //     label: "Positive Tests",
-  //     backgroundColor: "blue",
-  //     borderColor: "slateblue",
-  //     data: washingtonData
-  //   }
-  // })
-
+  //generates positive cases chart for default state
+  getStatePositive(response.data, "NY");
+  getStateTotal(response.data, "NY");
+  getStateDeath(response.data, "NY")
+  
 });
 
+function createDropDown(states){
+  const chartContainer = document.getElementById("chartContainer");
+  const stateSelector = document.createElement("select");
+  stateSelector.setAttribute("id", "stateSelector");
+  chartContainer.prepend(stateSelector);
+  states.forEach(function(d, i){
+    let newState = document.createElement("option");
+    newState.setAttribute("value", states[i]);
+    newState.innerText = states[i];
+    stateSelector.prepend(newState);
+  })
+}
+
+function getStatePositive(data, state) {
+  const positiveState = document.getElementById("positiveState").getContext("2d");
+
+  let stateData = data.filter(item => item.state === state);
+  let statePositive = [];
+  let dates = []
+  stateData.forEach(function (d, i) {
+    statePositive.push(stateData[i].positive)
+    dates.push(stateData[i].date)
+  });
+  const chart = new Chart(positiveState, {
+    type: "line",
+
+    data: {
+      labels: dates.reverse(),
+      datasets: [{
+        label: "Positive Tests",
+        backgroundColor: "aqua",
+        borderColor: "blue",
+        data: statePositive.reverse()
+      }]
+    }
+  })
+}
+
+function getStateTotal(data, state) {
+  const testState = document.getElementById("testState").getContext("2d");
+
+  let stateData = data.filter(item => item.state === state);
+  let stateTotal = [];
+  let dates = []
+  stateData.forEach(function (d, i) {
+    stateTotal.push(stateData[i].total)
+    dates.push(stateData[i].date)
+  });
+  const chart = new Chart(testState, {
+    type: "line",
+
+    data: {
+      labels: dates.reverse(),
+      datasets: [{
+        label: "Total Tests Administered",
+        backgroundColor: "aqua",
+        borderColor: "blue",
+        data: stateTotal.reverse()
+      }]
+    }
+  })
+}
+
+function getStateDeath(data, state) {
+  const deathState = document.getElementById("deathState").getContext("2d");
+
+  let stateData = data.filter(item => item.state === state);
+  let stateDeath = [];
+  let dates = []
+  stateData.forEach(function (d, i) {
+    stateDeath.push(parseInt(stateData[i].death))
+    dates.push(stateData[i].date)
+  });
+  const chart = new Chart(deathState, {
+    type: "line",
+
+    data: {
+      labels: dates.reverse(),
+      datasets: [{
+        label: "Death Count",
+        backgroundColor: "aqua",
+        borderColor: "blue",
+        data: stateDeath.reverse()
+      }]
+    }
+  })
+}
 
