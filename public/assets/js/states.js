@@ -33,7 +33,7 @@ axios.get("/api/statecovid").then(function (response) {
   // }
   let today = new Date;
   let currentDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate() -1}`;
-
+  console.log(response.data[0].date);
   response.data.forEach(function(d, i){
     if (response.data[i].date == currentDate){
       if (!territories.includes(response.data[i].state)) {
