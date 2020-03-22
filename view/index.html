@@ -12,32 +12,28 @@
   <nav class="bg-blue-500 p-6 mx-auto">
     <h1 class="text-center text-3xl text-white">COVID-19 Tracker</h1>
   </nav>
-  <section class="container mx-auto my-10">
-    <h1 class="text-3xl text-center mb-3">Title</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, nostrum modi accusantium, officiis veritatis earum,
-      nam similique dolor doloribus nihil cupiditate repellendus architecto ducimus corrupti laborum facilis molestias
-      odio sint.
-      Lorem, ipsum dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio asperiores molestiae iste
-      dolorem quae libero modi dolores delectus, similique in? Veniam porro quos facere dolore explicabo nihil vero
-      laudantium odio reiciendis fuga, eum quisquam minima soluta id. Unde, commodi. Esse blanditiis culpa fuga libero
-      dolorem nemo, quo, nam et eligendi amet, eos eaque illum ut. Provident perferendis corporis consequuntur.
-      Pariatur, cupiditate. Illum et suscipit, hic a quibusdam est nostrum ducimus facilis id. Officiis sint aliquam
-      provident aspernatur esse voluptates obcaecati sunt beatae nostrum laboriosam perspiciatis accusantium ab corporis
-      corrupti delectus magni facilis ducimus, quidem laborum! Porro iusto magni possimus fuga! Dolorem non, harum dicta
-      debitis vel magnam saepe recusandae molestiae quidem officia autem labore amet explicabo voluptatum corporis
-      dolores illo corrupti voluptate animi. In dolor doloremque nostrum quo? Aut perferendis perspiciatis quas culpa
-      commodi earum facere, incidunt pariatur quis architecto nesciunt expedita non distinctio eveniet? Maxime fuga
-      cupiditate animi dolorem, error delectus corporis mollitia, eum at, totam unde. Odit quas nesciunt, neque eos
-      perspiciatis quos architecto est, voluptate eligendi voluptatum mollitia autem suscipit distinctio voluptatem
-      excepturi laudantium cumque pariatur. Nam facilis, aliquam consequatur molestiae corporis quae, cum repellendus
-      blanditiis ex hic explicabo rem assumenda ut consequuntur laboriosam commodi fugiat cupiditate nisi, aut adipisci
-      sed repellat. Deleniti rem blanditiis temporibus! Iste odit voluptate impedit nihil ad excepturi soluta explicabo
-      cum harum praesentium, minus reiciendis enim. Eaque explicabo aperiam nisi aliquid corporis, quos magni? Amet
-      molestias mollitia unde adipisci quia, sapiente omnis odit alias impedit laboriosam a magnam ut, deserunt quo
-      assumenda praesentium velit provident aperiam accusamus. Facilis fuga assumenda ab repudiandae commodi voluptates
-      odio. Tenetur quaerat qui recusandae non, temporibus maxime, voluptatum unde natus cum ullam saepe autem porro
-      veritatis corporis quidem fugiat, dolores dolore sequi. Laborum maiores tempore delectus in odio laudantium
-      similique fugit, illo, temporibus culpa veritatis, necessitatibus aliquid!
+  <section class="text-center">
+    <h3>What is the Coronavirus?</h3>
+    <p>Coronavirus disease (COVID-19) is a respiratory illness that can spread from person to person. The virus
+      causes COVID-19 was first identified during an investigation in an outbreak in Wuhan, China.
+    </p>
+    <h3>How does it spread?</h3>
+    <p>Study’s think that the virus had come from an animal and is now spreading from person to person. The virus is
+      thought to
+      spread mainly between people who are in close contact with one another (within about 6 feet) through
+      respiratory
+      droplets produced when an infected person coughs or sneezes.</p>
+​
+    <h3>What are some symptoms?
+    </h3>
+    <ul>
+      <li>Fever</li>
+      <li>Cough</li>
+      <li>Shortness of breathe</li>
+    </ul>
+    <h3>Vaccines/Treatment?</h3>
+    <p>As of now there is no vaccines to protect against the virus and there is no specific antiviral treatments for
+      COVID-19.
     </p>
   </section>
 
@@ -48,18 +44,19 @@
   <div class="container mx-auto" id="chartContainer">
     <span class="ml-4">Please Select State</span>
     <div class="flex justify-center flex-col xl:flex-row h-64 lg:flex-col h-auto">
-      <div class="relative min-w-0 flex-1">
+      <div class="relative min-w-0 flex-1" id="positiveContainer">
         <canvas id="positiveState"></canvas>
       </div>
-      <div class="relative min-w-0 flex-1">
+      <div class="relative min-w-0 flex-1" id="testContainer">
         <canvas id="testState"></canvas>
       </div>
-      <div class="relative min-w-0 flex-1">
+      <div class="relative min-w-0 flex-1" id="deathContainer">
         <canvas id="deathState"></canvas>
       </div>
     </div>
   </div>
   <footer class="h-16"></footer>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>

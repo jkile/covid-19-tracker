@@ -149,3 +149,4 @@ function getStateDeath(data, state) {
   })
 }
 
+ScrollReveal().reveal("#chartContainer", {delay:250})
