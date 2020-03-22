@@ -62,7 +62,10 @@ axios({
     })
     .on("end", rowCount => {
       console.log(csvData[0]);
-      db.statecovid.bulkCreate(csvData).then(function(res) {});
-      // connection.query("INSERT INTO ");
+      db.statecovid.drop().then(function(res){
+        db.sequelize.sync().then(function(res){
+          db.statecovid.bulkCreate(csvData).then(function(res) {});
+        })
+      })
     });
 });
