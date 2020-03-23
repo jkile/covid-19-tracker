@@ -675,10 +675,6 @@ video {
           appearance: none;
 }
 
-.bg-nav-covid {
-  background-color: #b74528;
-}
-
 .bg-fixed {
   background-attachment: fixed;
 }
@@ -14005,20 +14001,24 @@ video {
   text-align: center;
 }
 
-.graph-xl{
+.graph-xl {
   height: 600px;
 }
 
-.graph-lg{
+.graph-lg {
   height: 450px;
 }
 
-.graph-md{
+.graph-md {
   height: 400px;
 }
 
-.graph-sm{
+.graph-sm {
   height: 200px;
+}
+
+.bg-nav-covid {
+  background-color: #b74528;
 }
 
 @media (min-width: 640px) {
