@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATEONLY
     },
     state: {
-      primaryKey: true,
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
