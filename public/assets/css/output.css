@@ -675,6 +675,10 @@ video {
           appearance: none;
 }
 
+.bg-nav-covid {
+  background-color: #b74528;
+}
+
 .bg-fixed {
   background-attachment: fixed;
 }
