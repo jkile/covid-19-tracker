@@ -4,7 +4,8 @@
   "description": "COVID-19 tracker: -db of cases/tests by state and date -separate page/view to add data to db -view data by day and/or state -cases added will go to secondary view of \"unverified\" cases for self reporting illness",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/jkile/covid-19-tracker#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
     "csv-parser": "^2.3.2",
     "d3": "^5.15.0",
     "express": "^4.17.1",

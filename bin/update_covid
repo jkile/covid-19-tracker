@@ -1,19 +1,17 @@
+#! /app/.heroku/node/bin/node
 const fs = require("fs");
 const path = require("path");
 const csv = require("fast-csv");
 const db = require("../models");
 const axios = require("axios");
 
-// axios.get("https://covidtracking.com/api/states/daily.csv").then(function(response){
-//   console.log(response.data);
-//   fs.writeFile(path.resolve(__dirname, "seed2.csv"), response.data, function(err){
-//     if (err) throw err;
-
-//   })
-// })
-const csvData = [];
-db.statecovid.sync({ force: true }).then(function() {
-  fs.createReadStream(path.resolve(__dirname, "seed2.csv"))
+axios({
+  url: "https://covidtracking.com/api/states/daily.csv",
+  method: "GET",
+  responseType: "stream"
+}).then(function(response) {
+  const csvData = [];
+  response.data
     .pipe(
       csv.parse({
         headers: [
@@ -22,6 +20,7 @@ db.statecovid.sync({ force: true }).then(function() {
           "positive",
           "negative",
           "pending",
+          undefined,
           "death",
           "total",
           undefined
@@ -62,8 +61,11 @@ db.statecovid.sync({ force: true }).then(function() {
       });
     })
     .on("end", rowCount => {
-      // console.log(csvData[0]);
-      db.statecovid.bulkCreate(csvData).then(function(res) {});
-      // connection.query("INSERT INTO ");
+      console.log(csvData[0]);
+      db.statecovid.drop().then(function(res){
+        db.sequelize.sync().then(function(res){
+          db.statecovid.bulkCreate(csvData).then(function(res) {});
+        })
+      })
     });
 });
