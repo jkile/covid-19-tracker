@@ -40,25 +40,100 @@
       </p>
     </section>
 
-    <div id="tooltip"></div>
-    <div class="container mx-auto">
-      <svg id="statesvg" viewBox="-80, 0, 1100, 695" class="mx-auto"></svg>
-      <div id="legend"></div>
-    </div>
-    <div class="container mx-auto" id="chartContainer">
-      <span class="ml-4">Please Select State</span>
-      <div
-        class="flex justify-center flex-col xl:flex-row h-64 lg:flex-col h-auto"
-      >
-        <div class="relative min-w-0 flex-1" id="positiveContainer">
-          <canvas id="positiveState"></canvas>
-        </div>
-        <div class="relative min-w-0 flex-1" id="testContainer">
-          <canvas id="testState"></canvas>
-        </div>
-        <div class="relative min-w-0 flex-1" id="deathContainer">
-          <canvas id="deathState"></canvas>
-        </div>
+<body class="font-serif text-lg text-gray-800">
+  <nav class="bg-blue-500 p-6 pb-0 mx-auto shadow-2xl">
+    <h1 class="text-center text-4xl text-white">COVID-<span class="font-sans">19</span> Tracker</h1>
+  </nav>
+  <br>
+  <section class="text-center">
+    <h3 class="font-semibold">What is the Coronavirus?</h3>
+    <p>Coronavirus disease (COVID-19) is a respiratory illness that can spread from person to person. The virus
+      causes COVID-19 was first identified during an investigation in an outbreak in Wuhan, China.
+    </p>
+    <h3 class="font-semibold">How does it spread?</h3>
+    <p>Study’s think that the virus had come from an animal and is now spreading from person to person. The virus is
+      thought to
+      spread mainly between people who are in close contact with one another (within about 6 feet) through
+      respiratory
+      droplets produced when an infected person coughs or sneezes.</p>
+    <h3 class="font-semibold">What are some symptoms?</h3>
+    <p>Fever, Cough, Shortness of breathe</p>
+    <h3 class="font-semibold">Vaccines/Treatment?</h3>
+    <p>As of now there is no vaccines to protect against the virus and there is no specific antiviral treatments for
+      COVID-19.
+    </p>
+  </section>
+
+  <div id="tooltip"></div>
+  <div class="container mx-auto">
+    <svg id="statesvg" viewBox="-80, 0, 1100, 695" class="mx-auto"></svg>
+  </div>
+  <div class="container mx-auto" id="chartContainer">
+    <span class="mr-4">Please Select State:</span>
+    <select name="stateSelector" id="stateSelector"
+      class="appearance-none w-24 mx-auto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+      <option value="AK" selected>AK</option>
+      <option value="AL">AL</option>
+      <option value="AR">AR</option>
+      <option value="AZ">AZ</option>
+      <option value="CA">CA</option>
+      <option value="CO">CO</option>
+      <option value="CT">CT</option>
+      <option value="DC">DC</option>
+      <option value="DE">DE</option>
+      <option value="FL">AK</option>
+      <option value="GA">GA</option>
+      <option value="HI">HI</option>
+      <option value="IA">IA</option>
+      <option value="ID">ID</option>
+      <option value="IL">IL</option>
+      <option value="IN">IN</option>
+      <option value="KS">KS</option>
+      <option value="KY">KY</option>
+      <option value="LA">LA</option>
+      <option value="MA">MA</option>
+      <option value="MD">MD</option>
+      <option value="ME">ME</option>
+      <option value="MI">MI</option>
+      <option value="MN">MN</option>
+      <option value="MO">MO</option>
+      <option value="MS">MS</option>
+      <option value="MT">MT</option>
+      <option value="NC">NC</option>
+      <option value="ND">ND</option>
+      <option value="NE">NE</option>
+      <option value="NH">NH</option>
+      <option value="NJ">NJ</option>
+      <option value="NM">NM</option>
+      <option value="NV">NV</option>
+      <option value="NY">NY</option>
+      <option value="OH">OH</option>
+      <option value="OK">OK</option>
+      <option value="OR">OR</option>
+      <option value="PA">PA</option>
+      <option value="RI">RI</option>
+      <option value="SC">SC</option>
+      <option value="SD">SD</option>
+      <option value="TN">TN</option>
+      <option value="TX">TX</option>
+      <option value="UT">UT</option>
+      <option value="VA">VA</option>
+      <option value="VT">VT</option>
+      <option value="WA">WA</option>
+      <option value="WI">WI</option>
+      <option value="WV">WV</option>
+      <option value="WY">WY</option>
+    </select>
+    <div class="flex justify-center flex-col xl:flex-row h-64 lg:flex-col h-auto">
+      <div class="relative min-w-0 flex-1" id="positiveContainer">
+        <canvas id="positiveState"></canvas>
+      </div>
+      <div class="relative min-w-0 flex-1" id="testContainer">
+        <canvas id="testState"></canvas>
+      </div>
+      <div class="relative min-w-0 flex-1" id="deathContainer">
+        <canvas id="deathState"></canvas>
+
       </div>
     </div>
     <footer class="h-16"></footer>
