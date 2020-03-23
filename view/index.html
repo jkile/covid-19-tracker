@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Tracker</title>
+    <link rel="stylesheet" href="/assets/css/output.css" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COVID-19 Tracker</title>
-  <link rel="stylesheet" href="/assets/css/output.css" type="text/css" />
-</head>
+  <body>
+    <nav class="bg-nav-covid p-6 mx-auto">
+      <h1 class="text-center text-3xl text-white">COVID-19 Tracker</h1>
+    </nav>
+    <section class="text-center">
+      <h3>What is the Coronavirus?</h3>
+      <p>
+        Coronavirus disease (COVID-19) is a respiratory illness that can spread
+        from person to person. The virus causes COVID-19 was first identified
+        during an investigation in an outbreak in Wuhan, China.
+      </p>
+      <h3>How does it spread?</h3>
+      <p>
+        Study’s think that the virus had come from an animal and is now
+        spreading from person to person. The virus is thought to spread mainly
+        between people who are in close contact with one another (within about 6
+        feet) through respiratory droplets produced when an infected person
+        coughs or sneezes.
+      </p>
+      ​
+      <h3>What are some symptoms?</h3>
+      <ul>
+        <li>Fever</li>
+        <li>Cough</li>
+        <li>Shortness of breathe</li>
+      </ul>
+      <h3>Vaccines/Treatment?</h3>
+      <p>
+        As of now there is no vaccines to protect against the virus and there is
+        no specific antiviral treatments for COVID-19.
+      </p>
+    </section>
 
-<body>
-  <nav class="bg-blue-500 p-6 mx-auto">
-    <h1 class="text-center text-3xl text-white">COVID-19 Tracker</h1>
-  </nav>
-  <section class="text-center">
-    <h3>What is the Coronavirus?</h3>
-    <p>Coronavirus disease (COVID-19) is a respiratory illness that can spread from person to person. The virus
-      causes COVID-19 was first identified during an investigation in an outbreak in Wuhan, China.
-    </p>
-    <h3>How does it spread?</h3>
-    <p>Study’s think that the virus had come from an animal and is now spreading from person to person. The virus is
-      thought to
-      spread mainly between people who are in close contact with one another (within about 6 feet) through
-      respiratory
-      droplets produced when an infected person coughs or sneezes.</p>
-​
-    <h3>What are some symptoms?
-    </h3>
-    <ul>
-      <li>Fever</li>
-      <li>Cough</li>
-      <li>Shortness of breathe</li>
-    </ul>
-    <h3>Vaccines/Treatment?</h3>
-    <p>As of now there is no vaccines to protect against the virus and there is no specific antiviral treatments for
-      COVID-19.
-    </p>
-  </section>
-
-  <div id="tooltip"></div>
-  <div class="container mx-auto">
-    <svg id="statesvg" viewBox="-80, 0, 1100, 695" class="mx-auto"></svg>
-  </div>
-  <div class="container mx-auto" id="chartContainer">
-    <span class="ml-4">Please Select State</span>
-    <div class="flex justify-center flex-col xl:flex-row h-64 lg:flex-col h-auto">
-      <div class="relative min-w-0 flex-1" id="positiveContainer">
-        <canvas id="positiveState"></canvas>
-      </div>
-      <div class="relative min-w-0 flex-1" id="testContainer">
-        <canvas id="testState"></canvas>
-      </div>
-      <div class="relative min-w-0 flex-1" id="deathContainer">
-        <canvas id="deathState"></canvas>
+    <div id="tooltip"></div>
+    <div class="container mx-auto">
+      <svg id="statesvg" viewBox="-80, 0, 1100, 695" class="mx-auto"></svg>
+      <div id="legend"></div>
+    </div>
+    <div class="container mx-auto" id="chartContainer">
+      <span class="ml-4">Please Select State</span>
+      <div
+        class="flex justify-center flex-col xl:flex-row h-64 lg:flex-col h-auto"
+      >
+        <div class="relative min-w-0 flex-1" id="positiveContainer">
+          <canvas id="positiveState"></canvas>
+        </div>
+        <div class="relative min-w-0 flex-1" id="testContainer">
+          <canvas id="testState"></canvas>
+        </div>
+        <div class="relative min-w-0 flex-1" id="deathContainer">
+          <canvas id="deathState"></canvas>
+        </div>
       </div>
     </div>
-  </div>
-  <footer class="h-16"></footer>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="assets/js/uStates.js"></script>
-  <script src="assets/js/states.js"></script>
-</body>
-
+    <footer class="h-16"></footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="assets/js/uStates.js"></script>
+    <script src="assets/js/states.js"></script>
+  </body>
 </html>

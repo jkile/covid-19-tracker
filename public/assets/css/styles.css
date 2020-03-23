@@ -48,15 +48,15 @@
 #tooltip tr td:nth-child(2) {
   text-align: center;
 }
-.graph-xl{
+.graph-xl {
   height: 600px;
 }
-.graph-lg{
+.graph-lg {
   height: 450px;
 }
-.graph-md{
+.graph-md {
   height: 400px;
 }
-.graph-sm{
+.graph-sm {
   height: 200px;
 }
