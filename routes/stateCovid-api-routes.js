@@ -12,11 +12,10 @@ module.exports = function (app) {
         res.json(dbstateCovid);
       });
   })
-    // Get route for returning statecovids of a specific state
-    app.get("/api/statecovids/state/:state", function (req, res) {
+  // Get route for returning statecovids of a specific state
+  app.get("/api/statecovids/state/:state", function (req, res) {
 
-    db.stateCovid
-      .findAll({
+    db.statecovid.findAll({
         where: {
           state: req.params.state
         }
@@ -29,7 +28,7 @@ module.exports = function (app) {
   // Get route for retrieving a single stateCovid date
   app.get("/api/statecovids/:date", function (req, res) {
 
-    db.stateCovid
+    db.statecovid
       .findOne({
         where: {
           date: req.params.date
