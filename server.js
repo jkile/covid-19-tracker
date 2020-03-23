@@ -23,12 +23,10 @@ require("./routes/stateCovid-api-routes.js")(app);
 require("./routes/html-routes")(app);
 // require("./routes/api-routes.js")(app);
 
-// // Syncing our sequelize models and then starting our Express app
-// // =============================================================
-// db.sequelize.sync().then(function() {
-//   app.listen(PORT, function() {
-//     console.log("App listening on PORT " + PORT);
-//   });
-// });
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT)});
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});

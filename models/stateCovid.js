@@ -1,7 +1,4 @@
 
-const DataTypes = require("sequelize");
-const sequelize = require("../config/connection");
-
 module.exports = function(sequelize, DataTypes) {
   var statecovid = sequelize.define("statecovid", {
     date: {
