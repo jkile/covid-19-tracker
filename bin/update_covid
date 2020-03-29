@@ -10,6 +10,7 @@ axios({
   method: "GET",
   responseType: "stream"
 }).then(function(response) {
+  console.log(response.data)
   const csvData = [];
   response.data
     .pipe(
@@ -23,6 +24,8 @@ axios({
           undefined,
           "death",
           "total",
+          undefined,
+          undefined,
           undefined,
           undefined,
           undefined,
