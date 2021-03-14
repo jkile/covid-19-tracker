@@ -1,24 +1,8 @@
 # Covid-19 Tracker
  
-COVID-19 tracker:
-* db of cases/tests by state and date
-* separate page/view to add data to db
-* view data by day and/or state
-* cases added will go to secondary view of "unverified" cases for self reporting illness
+This is a simple COVID-19 tracker built in the very early days of the pandemic with data visualization powered by ChartJS and d3 with minor styling using TailwindCSS. Rather than tracking daily reported cases, this data shows an ongoing tally state by state of positive tests, negative tests, death counts, and total testing done in each state. The darker each state is on the map indicates that it has a proportionally higher running total of positive tests compared to other states. 
 
-
-Technologies:
-* Anime.js
-* d3
-* Sequelize
-* Node
-* Express
-* MySQL
-* Handlebars
-* Tailwind
-
-Project roles: 
-
+For more information, please take a look at the live app [here](https://covid-19-mapper.herokuapp.com/). Please note it is deployed to a free Heroku instance and may take moments to load.
 
 Data source:
 https://covidtracking.com/api/
